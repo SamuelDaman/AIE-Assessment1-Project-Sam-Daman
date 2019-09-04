@@ -33,7 +33,7 @@ namespace Assessment1Shopkeeper
                             Console.WriteLine("This will eventually allow you to buy a Tool.");
                             break;
                         case "Material":
-                            Console.WriteLine("This will eventually allow you to buy a Material.");
+                            Console.WriteLine("This will eventually allow you to buy some Material.");
                             break;
                         case "Food":
                             Console.WriteLine("This will eventually allow you to buy Food.");
