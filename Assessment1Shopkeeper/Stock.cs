@@ -30,7 +30,7 @@ namespace Assessment1Shopkeeper
     }
     class Material
     {
-        public static int value = 1;
+        public static int value = 2;
     }
     class Food
     {

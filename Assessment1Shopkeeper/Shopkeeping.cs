@@ -46,7 +46,7 @@ namespace Assessment1Shopkeeper
             }
             if (Stock.weapons > 0 || Stock.armor > 0 || Stock.tools > 0 || Stock.materials > 0 || Stock.food > 0)
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     int productNumber = randomNumber.Next(5);
                     switch (productNumber)
@@ -185,20 +185,152 @@ namespace Assessment1Shopkeeper
                             Console.WriteLine("No one comes in.");
                             break;
                     }
-                    Console.WriteLine($"The {currentCustomer.name} is done buying from you.\r\nNow do you want to 'Barter' with them or 'Close' up shop?");
-                    string choice = Console.ReadLine();
+                }
+                Console.WriteLine($"The {currentCustomer.name} is done buying from you.\r\nNow do you want to 'Barter' with them or 'Close' up shop?");
+                string choice = Console.ReadLine();
+                for (int i = 0; i < 3; i++)
+                {
                     switch (choice)
                     {
                         case "Barter":
                             if (Stock.money > 0)
                             {
                                 int itemChosen = randomNumber.Next(5);
-                                Console.WriteLine($"The {currentCustomer.name} is willing to sell {items[itemChosen]}.");
-
+                                switch (itemChosen)
+                                {
+                                    case 0:
+                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{items[itemChosen]}");
+                                        Console.WriteLine("How much will you pay for it?");
+                                        for (int j = 0; j < 3; j++)
+                                        {
+                                            Int32.TryParse(Console.ReadLine(), out int payment);
+                                            if (payment <= Stock.money)
+                                            {
+                                                if (payment >= Weapon.value / currentCustomer.barterTolerance)
+                                                {
+                                                    Console.WriteLine($"You purchase the {items[itemChosen]} for {payment}g.\r\n");
+                                                    Stock.money -= payment;
+                                                    Stock.weapons += 1;
+                                                    break;
+                                                }
+                                                else if (j < 3)
+                                                {
+                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {items[itemChosen]}.");
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and leaves.\r\n");
+                                                }
+                                            }
+                                        }
+                                        break;
+                                    case 1:
+                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{items[itemChosen]}");
+                                        Console.WriteLine("How much will you pay for it?");
+                                        for (int j = 0; j < 3; j++)
+                                        {
+                                            Int32.TryParse(Console.ReadLine(), out int payment);
+                                            if (payment <= Stock.money)
+                                            {
+                                                if (payment >= Armor.value / currentCustomer.barterTolerance)
+                                                {
+                                                    Console.WriteLine($"You purchase the {items[itemChosen]} for {payment}g.\r\n");
+                                                    Stock.money -= payment;
+                                                    Stock.armor += 1;
+                                                    break;
+                                                }
+                                                else if (j < 3)
+                                                {
+                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {items[itemChosen]}.");
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and leaves.\r\n");
+                                                }
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{items[itemChosen]}");
+                                        Console.WriteLine("How much will you pay for it?");
+                                        for (int j = 0; j < 3; j++)
+                                        {
+                                            Int32.TryParse(Console.ReadLine(), out int payment);
+                                            if (payment <= Stock.money)
+                                            {
+                                                if (payment >= Tool.value / currentCustomer.barterTolerance)
+                                                {
+                                                    Console.WriteLine($"You purchase the {items[itemChosen]} for {payment}g.\r\n");
+                                                    Stock.money -= payment;
+                                                    Stock.tools += 1;
+                                                    break;
+                                                }
+                                                else if (j < 3)
+                                                {
+                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {items[itemChosen]}.");
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and leaves.\r\n");
+                                                }
+                                            }
+                                        }
+                                        break;
+                                    case 3:
+                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{items[itemChosen]}");
+                                        Console.WriteLine("How much will you pay for it?");
+                                        for (int j = 0; j < 3; j++)
+                                        {
+                                            Int32.TryParse(Console.ReadLine(), out int payment);
+                                            if (payment <= Stock.money)
+                                            {
+                                                if (payment >= Material.value / currentCustomer.barterTolerance)
+                                                {
+                                                    Console.WriteLine($"You purchase the {items[itemChosen]} for {payment}g.\r\n");
+                                                    Stock.money -= payment;
+                                                    Stock.materials += 1;
+                                                    break;
+                                                }
+                                                else if (j < 3)
+                                                {
+                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {items[itemChosen]}.");
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and leaves.\r\n");
+                                                }
+                                            }
+                                        }
+                                        break;
+                                    case 4:
+                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{items[itemChosen]}");
+                                        Console.WriteLine("How much will you pay for it?");
+                                        for (int j = 0; j < 3; j++)
+                                        {
+                                            Int32.TryParse(Console.ReadLine(), out int payment);
+                                            if (payment <= Stock.money)
+                                            {
+                                                if (payment >= Food.value / currentCustomer.barterTolerance)
+                                                {
+                                                    Console.WriteLine($"You purchase the {items[itemChosen]} for {payment}g.\r\n");
+                                                    Stock.money -= payment;
+                                                    Stock.food += 1;
+                                                    break;
+                                                }
+                                                else if (j < 3)
+                                                {
+                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {items[itemChosen]}.");
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and leaves.\r\n");
+                                                }
+                                            }
+                                        }
+                                        break;
+                                }
                             }
                             break;
-                        case "Close":
-                            return;
                         default:
                             return;
                     }

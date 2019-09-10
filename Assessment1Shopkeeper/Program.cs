@@ -15,19 +15,24 @@ namespace Assessment1Shopkeeper
             Shopping.Shop();
             while (true)
             {
-                Console.WriteLine("What to do now?");
-                Console.WriteLine("You can 'Check' your stock, 'Shop' for goods, or 'Open' your shop.");
+                Console.WriteLine("Now, you can 'Check' your stock, 'Shop' for goods, or 'Open' your shop.");
                 string action = Console.ReadLine();
                 switch (action)
                 {
                     case "Check":
+                        Console.Clear();
                         Console.WriteLine($"money = {Stock.money}\r\nweapons = {Stock.weapons}\r\narmor = {Stock.armor}\r\ntools = {Stock.tools}\r\nmaterials = {Stock.materials}\r\nfood = {Stock.food}\r\n");
                         break;
                     case "Shop":
+                        Console.Clear();
                         Shopping.Shop();
                         break;
                     case "Open":
+                        Console.Clear();
                         Shopkeeping.Shopkeep();
+                        break;
+                    default:
+                        Console.Clear();
                         break;
                 }
             }

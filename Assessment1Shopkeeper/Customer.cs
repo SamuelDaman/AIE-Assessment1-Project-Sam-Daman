@@ -21,7 +21,7 @@ namespace Assessment1Shopkeeper
             name = "Commoner";
             budget = 50;
             priceLeniency = 1.5f;
-            barterTolerance = 1.5f;
+            barterTolerance = 2f;
             productInterest = new bool[5] { true, false, true, false, true };
         }
     }
@@ -31,7 +31,7 @@ namespace Assessment1Shopkeeper
         {
             name = "Merchant";
             budget = 1000;
-            priceLeniency = 1.1f;
+            priceLeniency = 1.7f;
             barterTolerance = 1.25f;
             productInterest = new bool[5] { true, true, true, true, true };
         }
@@ -43,7 +43,7 @@ namespace Assessment1Shopkeeper
             name = "Warrior";
             budget = 200;
             priceLeniency = 1.6f;
-            barterTolerance = 1.8f;
+            barterTolerance = 5f;
             productInterest = new bool[5] { true, true, false, false, true };
         }
     }
@@ -54,7 +54,7 @@ namespace Assessment1Shopkeeper
             name = "Knight";
             budget = 1000;
             priceLeniency = 1.5f;
-            barterTolerance = 1.5f;
+            barterTolerance = 2f;
             productInterest = new bool[5] { true, true, false, false, false };
         }
     }
@@ -65,7 +65,7 @@ namespace Assessment1Shopkeeper
             name = "Worker";
             budget = 100;
             priceLeniency = 1.25f;
-            barterTolerance = 1.75f;
+            barterTolerance = 4f;
             productInterest = new bool[5] { false, false, true, true, true };
         }
     }
@@ -76,7 +76,7 @@ namespace Assessment1Shopkeeper
             name = "Craftsman";
             budget = 500;
             priceLeniency = 1.5f;
-            barterTolerance = 1.5f;
+            barterTolerance = 2f;
             productInterest = new bool[5] { false, false, true, true, true };
         }
     }
