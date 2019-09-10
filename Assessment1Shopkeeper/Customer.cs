@@ -8,57 +8,76 @@ namespace Assessment1Shopkeeper
 {
     class Customer
     {
-        public static int budget;
-        public static float priceLeniency;
-        public static float barterTolerance;
-        public static bool[] productInterest;
+        public string name = "";
+        public int budget;
+        public float priceLeniency;
+        public float barterTolerance;
+        public bool[] productInterest;
     }
     class Commoner : Customer
     {
-        public static string name = "Commoner";
-        public static int budget = 50;
-        public static float priceLeniency = 1.5f;
-        public static float barterTolerance = 1.5f;
-        public static bool[] productInterest = new bool[5] { true, false, true, false, true };
+        public Commoner()
+        {
+            name = "Commoner";
+            budget = 50;
+            priceLeniency = 1.5f;
+            barterTolerance = 1.5f;
+            productInterest = new bool[5] { true, false, true, false, true };
+        }
     }
     class Merchant : Customer
     {
-        public static string name = "Merchant";
-        public static int budget = 1000;
-        public static float priceLeniency = 1.1f;
-        public static float barterTolerance = 1.25f;
-        public static bool[] productInterest = new bool[5] { true, true, true, true, true };
+        public Merchant()
+        {
+            name = "Merchant";
+            budget = 1000;
+            priceLeniency = 1.1f;
+            barterTolerance = 1.25f;
+            productInterest = new bool[5] { true, true, true, true, true };
+        }
     }
     class Warrior : Customer
     {
-        public static string name = "Warrior";
-        public static int budget = 100;
-        public static float priceLeniency = 1.6f;
-        public static float barterTolerance = 1.8f;
-        public static bool[] productInterest = new bool[5] { true, true, false, false, true };
+        public Warrior()
+        {
+            name = "Warrior";
+            budget = 200;
+            priceLeniency = 1.6f;
+            barterTolerance = 1.8f;
+            productInterest = new bool[5] { true, true, false, false, true };
+        }
     }
     class Knight : Customer
     {
-        public static string name = "Knight";
-        public static int budget = 750;
-        public static float priceLeniency = 1.5f;
-        public static float barterTolerance = 1.5f;
-        public static bool[] productInterest = new bool[5] { true, true, false, false, false };
+        public Knight()
+        {
+            name = "Knight";
+            budget = 1000;
+            priceLeniency = 1.5f;
+            barterTolerance = 1.5f;
+            productInterest = new bool[5] { true, true, false, false, false };
+        }
     }
     class Worker : Customer
     {
-        public static string name = "Worker";
-        public static int budget = 75;
-        public static float priceLeniency = 1.25f;
-        public static float barterTolerance = 1.75f;
-        public static bool[] productInterest = new bool[5] { false, false, true, true, true };
+        public Worker()
+        {
+            name = "Worker";
+            budget = 100;
+            priceLeniency = 1.25f;
+            barterTolerance = 1.75f;
+            productInterest = new bool[5] { false, false, true, true, true };
+        }
     }
     class Craftsman : Customer
     {
-        public static string name = "Craftsman";
-        public static int budget = 500;
-        public static float priceLeniency = 1.5f;
-        public static float barterTolerance = 1.5f;
-        public static bool[] productInterest = new bool[5] { false, false, true, true, true };
+        public Craftsman()
+        {
+            name = "Craftsman";
+            budget = 500;
+            priceLeniency = 1.5f;
+            barterTolerance = 1.5f;
+            productInterest = new bool[5] { false, false, true, true, true };
+        }
     }
 }

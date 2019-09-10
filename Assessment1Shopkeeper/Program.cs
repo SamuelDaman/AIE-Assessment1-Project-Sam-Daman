@@ -16,7 +16,7 @@ namespace Assessment1Shopkeeper
             while (true)
             {
                 Console.WriteLine("What to do now?");
-                Console.WriteLine("You can 'Check' your stock, 'Shop' for goods, or 'Open' your shop");
+                Console.WriteLine("You can 'Check' your stock, 'Shop' for goods, or 'Open' your shop.");
                 string action = Console.ReadLine();
                 switch (action)
                 {
@@ -27,7 +27,7 @@ namespace Assessment1Shopkeeper
                         Shopping.Shop();
                         break;
                     case "Open":
-                        Console.WriteLine("The door refuses to open. It knows the game isn't complete yet.");
+                        Shopkeeping.Shopkeep();
                         break;
                 }
             }
