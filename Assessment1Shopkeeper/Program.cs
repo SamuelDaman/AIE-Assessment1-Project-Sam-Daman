@@ -12,6 +12,7 @@ namespace Assessment1Shopkeeper
         public static int hoursPassed = 0;
         static void Main()
         {
+            SaveGame.Save();
             Stock stock = new Stock();
             bool win = false;
             bool lose = false;
@@ -22,6 +23,7 @@ namespace Assessment1Shopkeeper
             while (win != true && lose != true)
             {
                 Console.WriteLine("Now, you can 'Check' your stock, 'Shop' for goods, 'Open' your shop, or use Material items to 'Craft' other items.");
+                Console.WriteLine("Or, you can 'Save' your game, 'Load' your saved game, or 'Reset' and delete your saved data");
                 string action = Console.ReadLine();
                 switch (action)
                 {
@@ -41,6 +43,14 @@ namespace Assessment1Shopkeeper
                         break;
                     case "Craft":
                         Crafting.Craft();
+                        break;
+                    case "Save":
+                        Console.Clear();
+                        SaveGame.Save();
+                        break;
+                    case "Load":
+                        Console.Clear();
+                        LoadGame.Load();
                         break;
                     default:
                         Console.Clear();

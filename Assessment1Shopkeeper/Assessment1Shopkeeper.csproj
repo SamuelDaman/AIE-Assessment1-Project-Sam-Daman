@@ -45,8 +45,10 @@
   <ItemGroup>
     <Compile Include="Crafting.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="LoadGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveGame.cs" />
     <Compile Include="Shopkeeping.cs" />
     <Compile Include="Shopping.cs" />
     <Compile Include="Stock.cs" />
@@ -55,7 +57,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GameWrite.txt" />
+    <Content Include="GameWrite.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
