@@ -10,11 +10,10 @@ namespace Assessment1Shopkeeper
     {
         public static void Shop()
         {
-            bool doneShopping = false;
-            while (doneShopping == false)
+            while (true)
             {
-                Console.WriteLine($"What would you like to purchase?");
-                Console.WriteLine($"{Stock.itemNames[0]}: {Weapon.value}g, {Stock.itemNames[1]}: {Armor.value}g, {Stock.itemNames[2]}: {Tool.value}g, {Stock.itemNames[3]}: {Material.value}g, or {Stock.itemNames[4]}: {Food.value}g?");
+                Console.WriteLine($"You have {Stock.money} gold, What would you like to purchase?");
+                Console.WriteLine($"{Stock.itemNames[0]}: {Weapon.value}g | {Stock.itemNames[1]}: {Armor.value}g | {Stock.itemNames[2]}: {Tool.value}g | {Stock.itemNames[3]}: {Material.value}g | {Stock.itemNames[4]}: {Food.value}g");
                 Console.WriteLine($"Or if you're don't want to shop, Enter 'Done' instead.");
                 string answer = Console.ReadLine();
                 switch (answer)
@@ -140,8 +139,7 @@ namespace Assessment1Shopkeeper
                         }
                         break;
                     case "Done":
-                        doneShopping = true;
-                        break;
+                        return;
                     default:
                         Console.WriteLine("You have bought nothing, because you're a loser who can't even spell words.");
                         break;

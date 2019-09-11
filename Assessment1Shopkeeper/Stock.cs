@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Assessment1Shopkeeper
 {
@@ -13,7 +14,7 @@ namespace Assessment1Shopkeeper
         public static int armor = 0;
         public static int tools = 0;
         public static int materials = 0;
-        public static int food = 0;
+        public static int food = 10;
         public static string[] itemNames = new string[5] { "Weapon", "Armor", "Tool", "Material", "Food" };
     }
     class Weapon
