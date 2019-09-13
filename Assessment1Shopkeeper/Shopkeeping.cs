@@ -7,13 +7,14 @@ using System.IO;
 
 namespace Assessment1Shopkeeper
 {
+    //This class is used for selling to customers and bartering for the customer's goods
     class Shopkeeping
     {
         public static void Shopkeep()
         {
             Random randomNumber = new Random();
             Customer currentCustomer = new Customer();
-            string[] items = new string[5] { "Weapon", "Armor", "Tool", "Material", "Food" };
+            //This uses a random number to decide which customer the player will deal with
             int chosenCustomer = randomNumber.Next(0, 6);
             switch (chosenCustomer)
             {
@@ -45,9 +46,11 @@ namespace Assessment1Shopkeeper
                     Console.WriteLine("Something has gone wrong; the game did a stupid.\r\n");
                     break;
             }
+            //This checks if the player actually has any items to sell before allowing them to open up shop
             if (Stock.weapons > 0 || Stock.armor > 0 || Stock.tools > 0 || Stock.materials > 0 || Stock.food > 0)
             {
-                for (int i = 0; i < 5; i++)
+                //This is the loop where the player will sell to the customer, then choose whether to barter with them or not
+                for (int i = 0; i < currentCustomer.buyLimit; i++)
                 {
                     int productNumber = randomNumber.Next(5);
                     switch (productNumber)
@@ -58,11 +61,11 @@ namespace Assessment1Shopkeeper
                                 if (currentCustomer.productInterest[productNumber] == true)
                                 {
                                     Console.WriteLine($"The {currentCustomer.name} asks you what you want for this...");
-                                    Console.WriteLine($"{items[productNumber]}\r\nName your price.");
+                                    Console.WriteLine($"{Stock.itemNames[productNumber]}\r\nName your price.");
                                     Int32.TryParse(Console.ReadLine(), out int price);
                                     if (price <= Weapon.value * currentCustomer.priceLeniency && price <= currentCustomer.budget)
                                     {
-                                        Console.WriteLine($"The {currentCustomer.name} buys the {items[productNumber]} for {price}g.");
+                                        Console.WriteLine($"The {currentCustomer.name} buys the {Stock.itemNames[productNumber]} for {price}g.");
                                         currentCustomer.budget -= price;
                                         Stock.money += price;
                                         Stock.weapons -= 1;
@@ -70,6 +73,7 @@ namespace Assessment1Shopkeeper
                                     else
                                     {
                                         Console.WriteLine($"The {currentCustomer.name} refuses to buy it for that price");
+                                        i++;
                                     }
                                 }
                                 else
@@ -84,11 +88,11 @@ namespace Assessment1Shopkeeper
                                 if (currentCustomer.productInterest[productNumber] == true)
                                 {
                                     Console.WriteLine($"The {currentCustomer.name} asks you what you want for this...");
-                                    Console.WriteLine($"{items[productNumber]}\r\nName your price.");
+                                    Console.WriteLine($"{Stock.itemNames[productNumber]}\r\nName your price.");
                                     Int32.TryParse(Console.ReadLine(), out int price);
                                     if (price <= Armor.value * currentCustomer.priceLeniency && price <= currentCustomer.budget)
                                     {
-                                        Console.WriteLine($"The {currentCustomer.name} buys the {items[productNumber]} for {price}g.");
+                                        Console.WriteLine($"The {currentCustomer.name} buys the {Stock.itemNames[productNumber]} for {price}g.");
                                         currentCustomer.budget -= price;
                                         Stock.money += price;
                                         Stock.armor -= 1;
@@ -96,6 +100,7 @@ namespace Assessment1Shopkeeper
                                     else
                                     {
                                         Console.WriteLine($"The {currentCustomer.name} refuses to buy it for that price");
+                                        i++;
                                     }
                                 }
                                 else
@@ -110,11 +115,11 @@ namespace Assessment1Shopkeeper
                                 if (currentCustomer.productInterest[productNumber] == true)
                                 {
                                     Console.WriteLine($"The {currentCustomer.name} asks you what you want for this...");
-                                    Console.WriteLine($"{items[productNumber]}\r\nName your price.");
+                                    Console.WriteLine($"{Stock.itemNames[productNumber]}\r\nName your price.");
                                     Int32.TryParse(Console.ReadLine(), out int price);
                                     if (price <= Tool.value * currentCustomer.priceLeniency && price <= currentCustomer.budget)
                                     {
-                                        Console.WriteLine($"The {currentCustomer.name} buys the {items[productNumber]} for {price}g.");
+                                        Console.WriteLine($"The {currentCustomer.name} buys the {Stock.itemNames[productNumber]} for {price}g.");
                                         currentCustomer.budget -= price;
                                         Stock.money += price;
                                         Stock.tools -= 1;
@@ -122,6 +127,7 @@ namespace Assessment1Shopkeeper
                                     else
                                     {
                                         Console.WriteLine($"The {currentCustomer.name} refuses to buy it for that price");
+                                        i++;
                                     }
                                 }
                                 else
@@ -136,11 +142,11 @@ namespace Assessment1Shopkeeper
                                 if (currentCustomer.productInterest[productNumber] == true)
                                 {
                                     Console.WriteLine($"The {currentCustomer.name} asks you what you want for this...");
-                                    Console.WriteLine($"{items[productNumber]}\r\nName your price.");
+                                    Console.WriteLine($"{Stock.itemNames[productNumber]}\r\nName your price.");
                                     Int32.TryParse(Console.ReadLine(), out int price);
                                     if (price <= Material.value * currentCustomer.priceLeniency && price <= currentCustomer.budget)
                                     {
-                                        Console.WriteLine($"The {currentCustomer.name} buys the {items[productNumber]} for {price}g.");
+                                        Console.WriteLine($"The {currentCustomer.name} buys the {Stock.itemNames[productNumber]} for {price}g.");
                                         currentCustomer.budget -= price;
                                         Stock.money += price;
                                         Stock.materials -= 1;
@@ -148,6 +154,7 @@ namespace Assessment1Shopkeeper
                                     else
                                     {
                                         Console.WriteLine($"The {currentCustomer.name} refuses to buy it for that price");
+                                        i++;
                                     }
                                 }
                                 else
@@ -162,11 +169,11 @@ namespace Assessment1Shopkeeper
                                 if (currentCustomer.productInterest[productNumber] == true)
                                 {
                                     Console.WriteLine($"The {currentCustomer.name} asks you what you want for this...");
-                                    Console.WriteLine($"{items[productNumber]}\r\nName your price.");
+                                    Console.WriteLine($"{Stock.itemNames[productNumber]}\r\nName your price.");
                                     Int32.TryParse(Console.ReadLine(), out int price);
                                     if (price <= Food.value * currentCustomer.priceLeniency && price <= currentCustomer.budget)
                                     {
-                                        Console.WriteLine($"The {currentCustomer.name} buys the {items[productNumber]} for {price}g.");
+                                        Console.WriteLine($"The {currentCustomer.name} buys the {Stock.itemNames[productNumber]} for {price}g.");
                                         currentCustomer.budget -= price;
                                         Stock.money += price;
                                         Stock.food -= 1;
@@ -174,6 +181,7 @@ namespace Assessment1Shopkeeper
                                     else
                                     {
                                         Console.WriteLine($"The {currentCustomer.name} refuses to buy it for that price");
+                                        i++;
                                     }
                                 }
                                 else
@@ -188,8 +196,9 @@ namespace Assessment1Shopkeeper
                     }
                 }
                 Console.WriteLine($"The {currentCustomer.name} is done buying from you.\r\nNow do you want to 'Barter' with them or 'Close' up shop?");
+                //This reads the player's answer and either starts bartering or closes shop
                 string choice = Console.ReadLine();
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < currentCustomer.barterLimit; i++)
                 {
                     switch (choice)
                     {
@@ -200,7 +209,7 @@ namespace Assessment1Shopkeeper
                                 switch (itemChosen)
                                 {
                                     case 0:
-                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{items[itemChosen]}");
+                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{Stock.itemNames[itemChosen]}");
                                         Console.WriteLine("How much will you pay for it?");
                                         for (int j = 0; j < 3; j++)
                                         {
@@ -209,24 +218,24 @@ namespace Assessment1Shopkeeper
                                             {
                                                 if (payment >= Weapon.value / currentCustomer.barterTolerance)
                                                 {
-                                                    Console.WriteLine($"You purchase the {items[itemChosen]} for {payment}g.\r\n");
+                                                    Console.WriteLine($"You purchase the {Stock.itemNames[itemChosen]} for {payment}g.\r\n");
                                                     Stock.money -= payment;
                                                     Stock.weapons += 1;
                                                     break;
                                                 }
-                                                else if (j < 3)
+                                                else if (j < 2)
                                                 {
-                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {items[itemChosen]}.");
+                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {Stock.itemNames[itemChosen]}.");
                                                 }
                                                 else
                                                 {
-                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and leaves.\r\n");
+                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and moves on.\r\n");
                                                 }
                                             }
                                         }
                                         break;
                                     case 1:
-                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{items[itemChosen]}");
+                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{Stock.itemNames[itemChosen]}");
                                         Console.WriteLine("How much will you pay for it?");
                                         for (int j = 0; j < 3; j++)
                                         {
@@ -235,24 +244,24 @@ namespace Assessment1Shopkeeper
                                             {
                                                 if (payment >= Armor.value / currentCustomer.barterTolerance)
                                                 {
-                                                    Console.WriteLine($"You purchase the {items[itemChosen]} for {payment}g.\r\n");
+                                                    Console.WriteLine($"You purchase the {Stock.itemNames[itemChosen]} for {payment}g.\r\n");
                                                     Stock.money -= payment;
                                                     Stock.armor += 1;
                                                     break;
                                                 }
-                                                else if (j < 3)
+                                                else if (j < 2)
                                                 {
-                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {items[itemChosen]}.");
+                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {Stock.itemNames[itemChosen]}.");
                                                 }
                                                 else
                                                 {
-                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and leaves.\r\n");
+                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and moves on.\r\n");
                                                 }
                                             }
                                         }
                                         break;
                                     case 2:
-                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{items[itemChosen]}");
+                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{Stock.itemNames[itemChosen]}");
                                         Console.WriteLine("How much will you pay for it?");
                                         for (int j = 0; j < 3; j++)
                                         {
@@ -261,24 +270,24 @@ namespace Assessment1Shopkeeper
                                             {
                                                 if (payment >= Tool.value / currentCustomer.barterTolerance)
                                                 {
-                                                    Console.WriteLine($"You purchase the {items[itemChosen]} for {payment}g.\r\n");
+                                                    Console.WriteLine($"You purchase the {Stock.itemNames[itemChosen]} for {payment}g.\r\n");
                                                     Stock.money -= payment;
                                                     Stock.tools += 1;
                                                     break;
                                                 }
-                                                else if (j < 3)
+                                                else if (j < 2)
                                                 {
-                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {items[itemChosen]}.");
+                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {Stock.itemNames[itemChosen]}.");
                                                 }
                                                 else
                                                 {
-                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and leaves.\r\n");
+                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and moves on.\r\n");
                                                 }
                                             }
                                         }
                                         break;
                                     case 3:
-                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{items[itemChosen]}");
+                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{Stock.itemNames[itemChosen]}");
                                         Console.WriteLine("How much will you pay for it?");
                                         for (int j = 0; j < 3; j++)
                                         {
@@ -287,24 +296,24 @@ namespace Assessment1Shopkeeper
                                             {
                                                 if (payment >= Material.value / currentCustomer.barterTolerance)
                                                 {
-                                                    Console.WriteLine($"You purchase the {items[itemChosen]} for {payment}g.\r\n");
+                                                    Console.WriteLine($"You purchase the {Stock.itemNames[itemChosen]} for {payment}g.\r\n");
                                                     Stock.money -= payment;
                                                     Stock.materials += 1;
                                                     break;
                                                 }
-                                                else if (j < 3)
+                                                else if (j < 2)
                                                 {
-                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {items[itemChosen]}.");
+                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {Stock.itemNames[itemChosen]}.");
                                                 }
                                                 else
                                                 {
-                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and leaves.\r\n");
+                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and moves on.\r\n");
                                                 }
                                             }
                                         }
                                         break;
                                     case 4:
-                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{items[itemChosen]}");
+                                        Console.WriteLine($"The {currentCustomer.name} is willing to sell their...\r\n{Stock.itemNames[itemChosen]}");
                                         Console.WriteLine("How much will you pay for it?");
                                         for (int j = 0; j < 3; j++)
                                         {
@@ -313,18 +322,18 @@ namespace Assessment1Shopkeeper
                                             {
                                                 if (payment >= Food.value / currentCustomer.barterTolerance)
                                                 {
-                                                    Console.WriteLine($"You purchase the {items[itemChosen]} for {payment}g.\r\n");
+                                                    Console.WriteLine($"You purchase the {Stock.itemNames[itemChosen]} for {payment}g.\r\n");
                                                     Stock.money -= payment;
                                                     Stock.food += 1;
                                                     break;
                                                 }
-                                                else if (j < 3)
+                                                else if (j < 2)
                                                 {
-                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {items[itemChosen]}.");
+                                                    Console.WriteLine($"The {currentCustomer.name} demands a higher price for the {Stock.itemNames[itemChosen]}.");
                                                 }
                                                 else
                                                 {
-                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and leaves.\r\n");
+                                                    Console.WriteLine($"The {currentCustomer.name} gets frustrated and moves on.\r\n");
                                                 }
                                             }
                                         }

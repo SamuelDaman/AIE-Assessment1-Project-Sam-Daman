@@ -7,15 +7,18 @@ using System.IO;
 
 namespace Assessment1Shopkeeper
 {
+    //This is the class used for buying items for a fixed price
     class Shopping
     {
         public static void Shop()
         {
+            //The loop where the player can buy as many items as they can afford
             while (true)
             {
-                Console.WriteLine($"You have {Stock.money} gold, What would you like to purchase?");
+                Console.WriteLine($"You have {Stock.money} gold, enter the name of the item you want to purchase.");
                 Console.WriteLine($"{Stock.itemNames[0]}: {Weapon.value}g | {Stock.itemNames[1]}: {Armor.value}g | {Stock.itemNames[2]}: {Tool.value}g | {Stock.itemNames[3]}: {Material.value}g | {Stock.itemNames[4]}: {Food.value}g");
-                Console.WriteLine($"Or if you're don't want to shop, Enter 'Done' instead.");
+                Console.WriteLine($"Or if you're don't want to shop, enter 'Done' instead.");
+                //This reads the player's answer then allows them say how many of the chosen item they want to buy
                 string answer = Console.ReadLine();
                 switch (answer)
                 {
@@ -145,7 +148,8 @@ namespace Assessment1Shopkeeper
                         Console.WriteLine("You have bought nothing, because you're a loser who can't even spell words.");
                         break;
                 }
-                Console.WriteLine($"You have {Stock.money}g.\r\n");
+                //This is used to create a line break without putting "\r\n" at the end of every closing line in the case-switch
+                Console.WriteLine("");
             }
         }
     }

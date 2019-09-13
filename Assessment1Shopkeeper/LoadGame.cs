@@ -7,6 +7,9 @@ using System.IO;
 
 namespace Assessment1Shopkeeper
 {
+    //This reads the GameWrite file copy and sets the stock and hoursPassed variables equal to the values written there
+    //If the values aren't valid it sets them equal to the default variables instead
+    //The GameWrite is deleted when closing the game, so you can not load a game from a previous play session
     class LoadGame
     {
         public static void Load()
@@ -28,9 +31,15 @@ namespace Assessment1Shopkeeper
                 Stock.food = Int32.Parse(lines[5]);
                 Program.hoursPassed = Int32.Parse(lines[6]);
             }
-            catch (FormatException e)
+            catch (Exception e)
             {
-                throw;
+                Stock.money = Stock.defaultMoney;
+                Stock.weapons = Stock.defaultWeapons;
+                Stock.armor = Stock.defaultArmor;
+                Stock.tools = Stock.defaultTools;
+                Stock.materials = Stock.defaultMaterials;
+                Stock.food = Stock.defaultFood;
+                Program.hoursPassed = Program.defaultHoursPassed;
             }
             reader.Close();
         }
