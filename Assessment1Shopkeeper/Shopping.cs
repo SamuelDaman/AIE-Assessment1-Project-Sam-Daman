@@ -19,10 +19,10 @@ namespace Assessment1Shopkeeper
                 Console.WriteLine($"{Stock.itemNames[0]}: {Weapon.value}g | {Stock.itemNames[1]}: {Armor.value}g | {Stock.itemNames[2]}: {Tool.value}g | {Stock.itemNames[3]}: {Material.value}g | {Stock.itemNames[4]}: {Food.value}g");
                 Console.WriteLine($"Or if you're don't want to shop, enter 'Done' instead.");
                 //This reads the player's answer then allows them say how many of the chosen item they want to buy
-                string answer = Console.ReadLine();
+                string answer = Console.ReadLine().ToLower();
                 switch (answer)
                 {
-                    case "Weapon":
+                    case "weapon":
                         if (Stock.money >= Weapon.value)
                         {
                             Console.WriteLine("How many would you like to buy?");
@@ -46,7 +46,7 @@ namespace Assessment1Shopkeeper
                             Console.WriteLine("You don't have enough money to buy this.");
                         }
                         break;
-                    case "Armor":
+                    case "armor":
                         if (Stock.money >= Armor.value)
                         {
                             Console.WriteLine("How many would you like to buy?");
@@ -70,7 +70,7 @@ namespace Assessment1Shopkeeper
                             Console.WriteLine("You don't have enough money to buy this.");
                         }
                         break;
-                    case "Tool":
+                    case "tool":
                         if (Stock.money >= Tool.value)
                         {
                             Console.WriteLine("How many would you like to buy?");
@@ -94,7 +94,7 @@ namespace Assessment1Shopkeeper
                             Console.WriteLine("You don't have enough money to buy this.");
                         }
                         break;
-                    case "Material":
+                    case "material":
                         if (Stock.money >= Material.value)
                         {
                             Console.WriteLine("How many would you like to buy?");
@@ -118,7 +118,7 @@ namespace Assessment1Shopkeeper
                             Console.WriteLine("You don't have enough money to buy this.");
                         }
                         break;
-                    case "Food":
+                    case "food":
                         if (Stock.money >= Food.value)
                         {
                             Console.WriteLine("How many would you like to buy?");
@@ -142,7 +142,7 @@ namespace Assessment1Shopkeeper
                             Console.WriteLine("You don't have enough money to buy this.");
                         }
                         break;
-                    case "Done":
+                    case "done":
                         return;
                     default:
                         Console.WriteLine("You have bought nothing, because you're a loser who can't even spell words.");

@@ -29,37 +29,39 @@ namespace Assessment1Shopkeeper
             while (true)
             {
                 Console.WriteLine("Now, you can 'Check' your stock, 'Shop' for goods, 'Open' your shop, or use Material items to 'Craft' other items.");
-                Console.WriteLine("Or, you can 'Save' your game or 'Load' your saved game.");
+                Console.WriteLine("Alternatively, you can 'Save' your game, 'Load' your saved game, or you can 'Quit' to exit the game.");
                 //This reads the answer that the player types reacts accordingly
-                string action = Console.ReadLine();
+                string action = Console.ReadLine().ToLower();
                 switch (action)
                 {
-                    case "Check":
+                    case "check":
                         Console.Clear();
                         Console.WriteLine($"money = {Stock.money}\r\nweapons = {Stock.weapons}\r\narmor = {Stock.armor}\r\ntools = {Stock.tools}\r\nmaterials = {Stock.materials}\r\nfood = {Stock.food}\r\nHours Passed = {hoursPassed}");
                         break;
-                    case "Shop":
+                    case "shop":
                         Console.Clear();
                         Shopping.Shop();
                         hoursPassed++;
                         break;
-                    case "Open":
+                    case "open":
                         Console.Clear();
                         Shopkeeping.Shopkeep();
                         hoursPassed++;
                         break;
-                    case "Craft":
+                    case "craft":
                         Console.Clear();
                         Crafting.Craft();
                         break;
-                    case "Save":
+                    case "save":
                         Console.Clear();
                         SaveGame.Save();
                         break;
-                    case "Load":
+                    case "load":
                         Console.Clear();
                         LoadGame.Load();
                         break;
+                    case "quit":
+                        return;
                     default:
                         Console.Clear();
                         break;
@@ -104,8 +106,8 @@ namespace Assessment1Shopkeeper
             if (lose == true)
             {
                 Console.WriteLine("YOU LOSE");
+                Console.ReadLine();
             }
-            Console.ReadLine();
         }
     }
 }

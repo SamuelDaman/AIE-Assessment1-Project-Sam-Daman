@@ -18,10 +18,10 @@ namespace Assessment1Shopkeeper
                 Console.WriteLine($"You have {Stock.materials}m, enter the name of the item you like to craft.");
                 Console.WriteLine($"{Stock.itemNames[0]} : 3m | {Stock.itemNames[1]} : 6m | {Stock.itemNames[2]} : 3m");
                 Console.WriteLine("Or you can enter 'Done' to stop crafting.");
-                string answer = Console.ReadLine();
+                string answer = Console.ReadLine().ToLower();
                 switch (answer)
                 {
-                    case "Weapon":
+                    case "weapon":
                         if (Stock.materials >= 3)
                         {
                             Console.WriteLine("You use 3 Material items to create a Weapon.");
@@ -34,7 +34,7 @@ namespace Assessment1Shopkeeper
                             Console.WriteLine("You don't have enough Material items to craft this.");
                         }
                         break;
-                    case "Armor":
+                    case "armor":
                         if (Stock.materials >= 6)
                         {
                             Console.WriteLine("You use 6 Material items to create Armor.");
@@ -47,7 +47,7 @@ namespace Assessment1Shopkeeper
                             Console.WriteLine("You don't have enough Material items to craft this.");
                         }
                         break;
-                    case "Tool":
+                    case "tool":
                         if (Stock.materials >= 3)
                         {
                             Console.WriteLine("You use 3 Material items to create a Tool.");
@@ -60,7 +60,7 @@ namespace Assessment1Shopkeeper
                             Console.WriteLine("You don't have enough Material items to craft this.");
                         }
                         break;
-                    case "Done":
+                    case "done":
                         return;
                     default:
                         break;

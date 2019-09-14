@@ -49,7 +49,7 @@ namespace Assessment1Shopkeeper
             //This checks if the player actually has any items to sell before allowing them to open up shop
             if (Stock.weapons > 0 || Stock.armor > 0 || Stock.tools > 0 || Stock.materials > 0 || Stock.food > 0)
             {
-                //This is the loop where the player will sell to the customer, then choose whether to barter with them or not
+                //This is the loop where the player will sell to the customer
                 for (int i = 0; i < currentCustomer.buyLimit; i++)
                 {
                     int productNumber = randomNumber.Next(5);
@@ -197,12 +197,12 @@ namespace Assessment1Shopkeeper
                 }
                 Console.WriteLine($"The {currentCustomer.name} is done buying from you.\r\nNow do you want to 'Barter' with them or 'Close' up shop?");
                 //This reads the player's answer and either starts bartering or closes shop
-                string choice = Console.ReadLine();
+                string choice = Console.ReadLine().ToLower();
                 for (int i = 0; i < currentCustomer.barterLimit; i++)
                 {
                     switch (choice)
                     {
-                        case "Barter":
+                        case "barter":
                             if (Stock.money > 0)
                             {
                                 int itemChosen = randomNumber.Next(5);
