@@ -7,7 +7,9 @@ using System.IO;
 
 namespace Assessment1Shopkeeper
 {
-    //This class stores information on the customer that the player is currently interacting in the Shopkeep function
+    /// <summary>
+    /// This class stores information on the customer that the player is currently interacting in the Shopkeep function
+    /// </summary>
     class Customer
     {
         //The name of the customer

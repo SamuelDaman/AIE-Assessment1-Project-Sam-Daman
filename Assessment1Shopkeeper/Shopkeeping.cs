@@ -7,7 +7,9 @@ using System.IO;
 
 namespace Assessment1Shopkeeper
 {
-    //This class is used for selling to customers and bartering for the customer's goods
+    /// <summary>
+    /// This class is used for selling to customers and bartering for the customer's goods
+    /// </summary>
     class Shopkeeping
     {
         public static void Shopkeep()

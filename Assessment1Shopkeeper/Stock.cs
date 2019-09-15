@@ -7,8 +7,10 @@ using System.IO;
 
 namespace Assessment1Shopkeeper
 {
-    //This class hold information on how many of each item type you have and the names of each item type
-    //The default varibles are used as a failsafe in the Load function
+    /// <summary>
+    /// This class hold information on how many of each item type you have and the names of each item type
+    /// The default varibles are used as a failsafe in the Load function
+    /// </summary>
     class Stock
     {
         public static int money = 500;

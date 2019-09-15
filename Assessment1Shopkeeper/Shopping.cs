@@ -7,7 +7,9 @@ using System.IO;
 
 namespace Assessment1Shopkeeper
 {
-    //This is the class used for buying items for a fixed price
+    /// <summary>
+    /// This is the class used for buying items for a fixed price
+    /// </summary>
     class Shopping
     {
         public static void Shop()

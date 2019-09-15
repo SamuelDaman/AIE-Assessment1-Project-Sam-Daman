@@ -7,13 +7,16 @@ using System.IO;
 
 namespace Assessment1Shopkeeper
 {
-    //This is the class used to start the game and call on other classes and functions
+    /// <summary>
+    /// This is the class used to start the game and call on other classes and functions
+    /// </summary>
     class Program
     {
         //The hoursPassed variable is used to keep track of how many hours have gone by
         //defaultHoursPassed is what hoursPassed is set to if the Parse method in the Load function fails
         public static int hoursPassed = 0;
         public static int defaultHoursPassed = 0;
+        public static bool itemsAreOrdered = false;
         static void Main()
         {
             Stock stock = new Stock();
@@ -66,9 +69,35 @@ namespace Assessment1Shopkeeper
                         Console.Clear();
                         break;
                 }
-                //If statements checking if you have enough food and money by the end of the day
+                //If statement check if the day has ended
                 if (hoursPassed >= 9)
                 {
+                    //Here, the player receives the items they ordered from the smith
+                    if (itemsAreOrdered == true)
+                    {
+                        Console.WriteLine("In the morning, you receive your order from the blacksmith.");
+                        if (Crafting.orderedItems[0] > 0)
+                        {
+                            Console.WriteLine($"{Crafting.orderedItems[0]} Weapons");
+                            Stock.weapons += Crafting.orderedItems[0];
+                            Crafting.orderedItems[0] = 0;
+                        }
+                        if (Crafting.orderedItems[1] > 0)
+                        {
+                            Console.WriteLine($"{Crafting.orderedItems[1]} suits of Armor");
+                            Stock.armor += Crafting.orderedItems[1];
+                            Crafting.orderedItems[1] = 0;
+                        }
+                        if (Crafting.orderedItems[2] > 0)
+                        {
+                            Console.WriteLine($"{Crafting.orderedItems[2]} Tools");
+                            Stock.tools += Crafting.orderedItems[2];
+                            Crafting.orderedItems[2] = 0;
+                        }
+                        Console.WriteLine("");
+                        itemsAreOrdered = false;
+                    }
+                    //This checks if the player has enough food and money to survive
                     if (Stock.food >= 3)
                     {
                         Console.WriteLine("At the end of the day, you consume three Food items from your stock.");
@@ -99,6 +128,7 @@ namespace Assessment1Shopkeeper
                         lose = true;
                         break;
                     }
+                    Console.WriteLine("");
                     hoursPassed = 0;
                 } 
             }

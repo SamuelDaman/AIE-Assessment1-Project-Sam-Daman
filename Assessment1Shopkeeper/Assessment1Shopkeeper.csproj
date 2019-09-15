@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crafting.cs" />
+    <Compile Include="CraftingMethod.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="LoadGame.cs" />
     <Compile Include="Program.cs" />
