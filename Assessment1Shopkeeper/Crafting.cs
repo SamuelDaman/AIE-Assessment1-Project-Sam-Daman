@@ -24,7 +24,7 @@ namespace Assessment1Shopkeeper
             {
                 Console.WriteLine("Would you like to craft the items 'Yourself', or hire a 'Smith'?\r\n");
                 Console.WriteLine("Crafting items yourself takes Materials and time. Each time you craft an item one hour will go by.\r\n");
-                Console.WriteLine("Having a smith craft them for you will cost less materials but it will cost money.\r\nThe items the smith crafts will be delivered to you at the end of the day.\r\n");
+                Console.WriteLine("Having a smith craft them for you will cost less materials but it will cost money.\r\nThe items the smith crafts will be delivered to you at the end of the day.");
                 //This reads the player's choice.
                 string choice = Console.ReadLine().ToLower();
                 switch (choice)
