@@ -8,9 +8,9 @@ using System.IO;
 namespace Assessment1Shopkeeper
 {
     /// <summary>
-    /// This reads the GameWrite file copy and sets the stock and hoursPassed variables equal to the values written there
-    /// If the values aren't valid it sets them equal to the default variables instead
-    /// The GameWrite is deleted when closing the game, so you can not load a game from a previous play session
+    /// This reads the GameWrite file copy and sets the stock and hoursPassed variables equal to the values written there.
+    /// If the values aren't valid it sets them equal to the default variables instead.
+    /// The GameWrite copy is deleted when closing the game, so you can not load a game from a previous play session.
     /// </summary>
     class LoadGame
     {

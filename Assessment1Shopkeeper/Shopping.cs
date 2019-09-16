@@ -8,19 +8,21 @@ using System.IO;
 namespace Assessment1Shopkeeper
 {
     /// <summary>
-    /// This is the class used for buying items for a fixed price
+    /// This is the class used for buying items for a fixed price.
     /// </summary>
     class Shopping
     {
         public static void Shop()
         {
-            //The loop where the player can buy as many items as they can afford
+            //This is the loop where the player can buy as many items as they can afford.
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"You have {Stock.money} gold, enter the name of the item you want to purchase.");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"{Stock.itemNames[0]}: {Weapon.value}g | {Stock.itemNames[1]}: {Armor.value}g | {Stock.itemNames[2]}: {Tool.value}g | {Stock.itemNames[3]}: {Material.value}g | {Stock.itemNames[4]}: {Food.value}g");
                 Console.WriteLine($"Or if you're don't want to shop, enter 'Done' instead.");
-                //This reads the player's answer then allows them say how many of the chosen item they want to buy
+                //This reads the player's answer then allows them say how many of the chosen item they want to buy.
                 string answer = Console.ReadLine().ToLower();
                 switch (answer)
                 {
@@ -31,7 +33,9 @@ namespace Assessment1Shopkeeper
                             Int32.TryParse(Console.ReadLine(), out int amount);
                             if (Stock.money < Weapon.value * amount)
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("You can't afford that many.");
+                                Console.ForegroundColor = ConsoleColor.White;
                                 break;
                             }
                             else if (amount <= 0)
@@ -45,7 +49,9 @@ namespace Assessment1Shopkeeper
                         }
                         else
                         {
-                            Console.WriteLine("You don't have enough money to buy this.");
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("You don't have enough money to buy that.");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
                         break;
                     case "armor":
@@ -55,7 +61,9 @@ namespace Assessment1Shopkeeper
                             Int32.TryParse(Console.ReadLine(), out int amount);
                             if (Stock.money < Armor.value * amount)
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("You can't afford that many.");
+                                Console.ForegroundColor = ConsoleColor.White;
                                 break;
                             }
                             else if (amount <= 0)
@@ -69,7 +77,9 @@ namespace Assessment1Shopkeeper
                         }
                         else
                         {
-                            Console.WriteLine("You don't have enough money to buy this.");
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("You don't have enough money to buy that.");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
                         break;
                     case "tool":
@@ -79,7 +89,9 @@ namespace Assessment1Shopkeeper
                             Int32.TryParse(Console.ReadLine(), out int amount);
                             if (Stock.money < Tool.value * amount)
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("You can't afford that many.");
+                                Console.ForegroundColor = ConsoleColor.White;
                                 break;
                             }
                             else if (amount <= 0)
@@ -93,7 +105,9 @@ namespace Assessment1Shopkeeper
                         }
                         else
                         {
-                            Console.WriteLine("You don't have enough money to buy this.");
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("You don't have enough money to buy that.");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
                         break;
                     case "material":
@@ -103,7 +117,9 @@ namespace Assessment1Shopkeeper
                             Int32.TryParse(Console.ReadLine(), out int amount);
                             if (Stock.money < Material.value * amount)
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("You can't afford that many.");
+                                Console.ForegroundColor = ConsoleColor.White;
                                 break;
                             }
                             else if (amount <= 0)
@@ -117,7 +133,9 @@ namespace Assessment1Shopkeeper
                         }
                         else
                         {
-                            Console.WriteLine("You don't have enough money to buy this.");
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("You don't have enough money to buy that.");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
                         break;
                     case "food":
@@ -127,7 +145,9 @@ namespace Assessment1Shopkeeper
                             Int32.TryParse(Console.ReadLine(), out int amount);
                             if (Stock.money < Food.value * amount)
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("You can't afford that many.");
+                                Console.ForegroundColor = ConsoleColor.White;
                                 break;
                             }
                             else if (amount <= 0)
@@ -141,7 +161,9 @@ namespace Assessment1Shopkeeper
                         }
                         else
                         {
-                            Console.WriteLine("You don't have enough money to buy this.");
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("You don't have enough money to buy that.");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
                         break;
                     case "done":
@@ -150,7 +172,7 @@ namespace Assessment1Shopkeeper
                         Console.WriteLine("You have bought nothing, because you're a loser who can't even spell words.");
                         break;
                 }
-                //This is used to create a line break without putting "\r\n" at the end of every closing line in the case-switch
+                //This is used to create a line break without putting "\r\n" at the end of every closing line in the case-switch.
                 Console.WriteLine("");
             }
         }

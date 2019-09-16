@@ -8,8 +8,8 @@ using System.IO;
 namespace Assessment1Shopkeeper
 {
     /// <summary>
-    /// This writes the player stock and hourPassed variables down to a copy of the GameWrite text file
-    /// The GameWrite copy will be deleted after closing the game, and so will the save  
+    /// This writes the player's stock and hourPassed variables down to a copy of the GameWrite text file.
+    /// The GameWrite copy will be deleted after closing the game, and so will the save. 
     /// </summary>
     class SaveGame
     {

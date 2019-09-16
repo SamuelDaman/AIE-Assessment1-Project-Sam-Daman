@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Assessment1Shopkeeper
 {
     /// <summary>
-    /// This class contains information needed for crafting
+    /// This class contains information needed for crafting.
     /// </summary>
     class CraftingMethod
     {

@@ -8,26 +8,26 @@ using System.IO;
 namespace Assessment1Shopkeeper
 {
     /// <summary>
-    /// This class stores information on the customer that the player is currently interacting in the Shopkeep function
+    /// This class stores information on the customer that the player is currently interacting in the Shopkeep function.
     /// </summary>
     class Customer
     {
-        //The name of the customer
+        //This is the name of the customer.
         public string name = "";
-        //This checks how much money the customer is will to spend
+        //This checks how much money the customer is willing to spend.
         public int budget;
-        //This decides how large of a price markup the customer is will accept
+        //This decides how large of a price markup the customer is will accept.
         public float priceLeniency;
-        //This decides how low of a price they are willing to sell their items for when bartering
+        //This decides how low of a price they are willing to sell their items for when bartering.
         public float barterTolerance;
-        //This shows the number of items they're willing to buy
+        //This shows the number of items they're willing to buy.
         public int buyLimit;
-        //This shows the number of items they're willing sell when bartering
+        //This shows the number of items they're willing sell when bartering.
         public int barterLimit;
-        //This checks what products they're willing to buy
+        //This checks what products they're willing to buy.
         public bool[] productInterest;
     }
-    //These classes store the information of each individual customer type
+    //These classes store the information of each individual customer type.
     class Commoner : Customer
     {
         public Commoner()
